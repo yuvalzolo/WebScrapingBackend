@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\CrawlerController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/test-crawler', [TestController::class, 'testCrawlerController']);
+Route::post('/crawl', [CrawlerController::class, 'crawl']);
+Route::get('/get-urls', [CrawlerController::class, 'getUrls']);
+Route::get('/get-related-urls', [CrawlerController::class, 'getRelatedUrls']);
+
+
